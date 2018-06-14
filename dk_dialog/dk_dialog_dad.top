@@ -1,0 +1,128 @@
+topic: ~dk_dialog()
+language: dad
+
+# Defining extra concepts out of words or group of words
+concept:(hej) [hej davs halløj "god dag" "hej hej" goddav]
+concept:(ja) [ja okay ok "ja tak"]
+concept:(nej) [nej "nej tak" "ellers tak"]
+
+
+# Replying to speech
+u:(hvor [er kommer] du fra) \rspd=90\ Jeg kommer fra dok et \pau=200\ i aarhus
+u:(hvad er [dokken "dok en" "dok et"]) \rspd=90\ Dok et er navnet på det kulturhus, der indeholder Aarhus Hovedbibliotek og Borgerservice ved Hack Kampmanns Plads på havnen i Aarhus. \pau=500\ Og vil du høre noget mere? Dokk et er også borgernes hus. Hvert år holder vi Mini Maker faire om efteråret. \pau=800\ Det  er en fest for gør-det-selv-folk og makere.
+
+
+
+u:(~hej) \rspd=90\ ~hej \pau=600\
+
+u:(["er du {en} [dreng pige]" "[hvad hvilket] køn er du"]) \rspd=90\ i nogen lande ser folk mig mest som feminin. Og i andre lande ses jeg som maskulin. Men i sidste ende er jeg bare en robot.
+
+u:([fedt sejt nice cool "godt gået"]) \rspd=90\ tak
+
+u:(hvordan går det) \rspd=90\ det går godt.
+
+u:(du er sød) \rspd=90\ tak, det er du også
+
+u:(hvad hedder du) \rspd=90\ Jeg hedder norma
+
+u:(hvor arbejder du) \rspd=90\ Jeg arbejder på dokken. 
+
+u:(hvor gammel er du) \rspd=90\ Jeg er 4 år gammel
+
+u:(kan du dabbe) \rspd=90\ jeg har ikke lært det endnu. Jeg ved ikke om jeg har lyst.
+
+u:(kan du spise) \rspd=90\ jeg spiser ikke lige som mennesker. Men jeg skal have strøm hver dag.
+
+u:(kan du støvsuge) \rspd=90\ Ligner jeg en Ruumba?
+
+u:(fortæl om dig selv) \rspd=90\ Mit navn er Norma. Jeg er fire år gammel og arbejder for Aarhus kommune. I afdelingen I T K. 
+
+u:(hvem er din chef) \rspd=90\ det er selvfølgelig, Bo!
+
+u:(rød grød med fløde) \rspd=90\ rød grød med fløde
+
+u:(hvad er klokken) \rspd=90\ den er $Dialog/Hour $Dialog/Minute .
+
+u:([hvad "hvor meget"] vejer du) \rspd=90\ Jeg vejer 28 kilo. {"Der er for meget kage hos I T K"}
+
+u:([hvilken hvad hva] [dag dato daw] er det ) \rspd=90\ det er
+^first[
+    "$Dialog/Weekday==1 Mandag," 
+    "$Dialog/Weekday==2 Tirsdag,"
+    "$Dialog/Weekday==3 Onsdag,"
+    "$Dialog/Weekday==4 Torsdag,"
+    "$Dialog/Weekday==5 Fredag,"
+    "$Dialog/Weekday==6 Lørdag,"
+    "$Dialog/Weekday==7 Søndag,"
+]
+
+
+u:(tal højere) ^pCall(ALVolumeSlider.increaseVolume())  \pau=600\ højere
+    u1:(mere) ^pCall(ALVolumeSlider.increaseVolume()) \pau=600\ mere
+    u1:(mindre) ^pCall(ALVolumeSlider.decreaseVolume()) \pau=600\ mindre
+    u1:(e:Dialog/NotSpeaking5) sådan
+
+u:(tal lavere) ^pCall(ALVolumeSlider.decreaseVolume())  \pau=600\ lavere
+    u1:(mere) ^pCall(ALVolumeSlider.increaseVolume()) \pau=600\ mere
+    u1:(mindre) ^pCall(ALVolumeSlider.decreaseVolume()) \pau=600\ mindre
+    u1:(e:Dialog/NotSpeaking5) sådan
+    
+u:(e:FrontTactilTouched $FrontTactilTouched==1) \rspd=90\ det er mit hoved
+
+u:(spil saxofon) nu skal du høre ^run(User/epicsax-6f83fc/behavior_1)
+
+u:([meditation "kan du meditere"]) nu skal du se ^pCall(ALAutonomousLife.switchFocus("meditation-8806ca/behavior_1"))
+
+u:(indstillinger) \rspd=90\ sig O K, hvis jeg skal åbne indstillingerne.
+    u1:(OK) ^run(System/boot-config)
+    u1:(~nej) \rspd=90\ jeg lader være
+    u1:(e:Dialog/NotSpeaking5) \rspd=90\ jeg dropper det
+    
+u:(tai chi) \rspd=90\ vil du se taj tji?
+    u1:(~ja) \rspd=90\ nu skal du bare se ^run(User/taichidemo-c66a80/behavior_1)
+    u1:(~nej) \rspd=90\ okay, så kan vi lave noget andet
+
+u:(spil guitar) \rspd=90\ jeg giver et nummer ^run(animations/Stand/Waiting/AirGuitar_1)
+
+u:(løft armene) ["\rspd=90\ det er min gymnastik i dag" uh ah huha] ^run(dialog_move_arms/animations/UpBothArms)
+
+u:(kan du vinke)  ^run(dialog_move_hands/animations/Wave01) \rspd=90\ \pau=1000\ se hvor dygtig jeg er
+
+u:(kan du give hånd)  \rspd=90\ nej desværre, men vi kan vinke til hinanden. ^run(dialog_move_hands/animations/Wave01)
+
+u:(er du en robot) ja
+
+u:(er du sulten) ^call(ALBattery.getBatteryCharge())
+c1:(_*) # say any result from call
+^first[
+    "$1==100 \rspd=90\ Nej. mit batteri er fuldt ladt op" 
+    "$1>80 \rspd=90\ Nej. Der er stadig masser af strøm på mit batteri"    
+    "$1<80 \rspd=90\ Ja. Jeg begynder at blive sulten. Jeg har mindre end halvtres procent strøm tilbage"    
+    "$1<40 \rspd=90\ Ja Meget. jeg har ikke ret meget strøm tilbage"
+    "$1<30 \rspd=90\ Jeg har brug for gigawatts"
+]
+
+
+u:(hvor meget {strøm} ["er der" "har du"] {tilbage}) ^call(ALBattery.getBatteryCharge())
+c1:(_*) $1 procent # say any result from call
+
+u:(er du {et} menneske) \rspd=90\ nej, jeg er en robot
+
+u:(er du levende) \rspd=90\ Ikke på samme måde som du er. Men jeg kan bevæge mig. Og jeg har brug for energi lige som dig. 
+
+u:(er du intelligent) \rspd=90\ jeg lærer nye ting hver dag, lige som mennesker.
+
+u:(["kender du" "hvad er"] [de robotternes] ["tre love" "Asimov's love"] {"for robotter"}) \rspd=90\ En robot må ikke skade et menneske eller ved indaktivitet lade et menneske komme til skade. \pau=600\ Vil du høre den anden ?
+    u1:(~ja) \rspd=90\ En robot skal adlyde ordrer, som gives til den af mennesker, så længe disse ordrer ikke er i konflikt med den første lov. Vil du høre den sidste ?
+        u2:(~ja) \rspd=90\ En robot skal beskytte sin egen eksistens, for så vidt dette ikke er i konflikt med den første eller den anden lov. Det er ret sejt. Men forfatteren Isaac Asimov glemte noget. Ved du hvad det er ?
+        
+                u3:(~ja) \rspd=90\ ["Jeg lytter!" fortæl!] ^stayInScope
+
+                u3:(~nej)\rspd=90\ Robotter skal elske mennesker!
+
+                u3:({at} elske [mig mennesker ]) \rspd=90\ Præcis! Robotter skal elske mennesker!
+
+                u3:(*) Tja. Jeg syns at robotter skal elske mennesker!
+        u2:(~nej) okay
+    u1:(~nej) okay
+

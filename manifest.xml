@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package uuid="dk_dialog_scrip" version="0.0.1">
+ <names>
+  <name lang="en_US">dk_dialog</name>
+ </names>
+ <supportedLanguages>
+  <language>da_DK</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+  <language>da_DK</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <names>
+    <name lang="da_DK">dk_testing_dialog</name>
+   </names>
+   <triggerSentences>
+    <sentence lang="da_DK">start</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="da_DK">jeg starter</sentence>
+   </loadingResponses>
+   <autonomous>
+    <condition purpose="launchTrigger"><![CDATA[('Launchpad/ZoneOfTrackedHuman' == 1) && ('UserSession/FocusedUser' >= 0) || ('Launchpad/ZoneOfTrackedHuman' == 1) && ('UserSession/FocusedUser' >= 0)]]></condition>
+   </autonomous>
+   <permissions/>
+  </behaviorContent>
+ </contents>
+ <requirements>
+  <naoqiRequirement maxVersion="2.5" minVersion="2.5"/>
+ </requirements>
+</package>
