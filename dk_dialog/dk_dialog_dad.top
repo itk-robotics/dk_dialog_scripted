@@ -12,6 +12,8 @@ u:(hvor [er kommer] du fra) \rspd=90\ Jeg kommer fra dok et \pau=200\ i aarhus
 u:(hvad er [dokken "dok en" "dok et"]) \rspd=90\ Dok et er navnet på det kulturhus, der indeholder Aarhus Hovedbibliotek og Borgerservice ved Hack Kampmanns Plads på havnen i Aarhus. \pau=500\ Og vil du høre noget mere? Dokk et er også borgernes hus. Hvert år holder vi Mini Maker faire om efteråret. \pau=800\ Det  er en fest for gør-det-selv-folk og makere.
 
 
+u:({vil du} [fortæl fortælle] et eventyr) ^switchFocus(eventyr-hca/eventyr_demo)
+u:(borgerservice) borgerservice ^switchFocus(bs_valg_2017_voice/behavior_1)
 
 u:(~hej) \rspd=90\ ~hej \pau=600\
 
@@ -33,13 +35,13 @@ u:(kan du dabbe) \rspd=90\ jeg har ikke lært det endnu. Jeg ved ikke om jeg har
 
 u:(kan du spise) \rspd=90\ jeg spiser ikke lige som mennesker. Men jeg skal have strøm hver dag.
 
-u:(kan du støvsuge) \rspd=90\ Ligner jeg en Ruumba?
+u:(kan du støvsuge) \rspd=85\ Ligner jeg en Ruumba?
 
 u:(fortæl om dig selv) \rspd=90\ Mit navn er Norma. Jeg er fire år gammel og arbejder for Aarhus kommune. I afdelingen I T K. 
 
 u:(hvem er din chef) \rspd=90\ det er selvfølgelig, Bo!
 
-u:(rød grød med fløde) \rspd=90\ rød grød med fløde
+u:(["kan du sige"] rød grød med fløde) \rspd=90\ rød grød med fløde
 
 u:(hvad er klokken) \rspd=90\ den er $Dialog/Hour $Dialog/Minute .
 
@@ -71,7 +73,7 @@ u:(e:FrontTactilTouched $FrontTactilTouched==1) \rspd=90\ det er mit hoved
 
 u:(spil saxofon) nu skal du høre ^run(User/epicsax-6f83fc/behavior_1)
 
-u:([meditation "kan du meditere"]) nu skal du se ^pCall(ALAutonomousLife.switchFocus("meditation-8806ca/behavior_1"))
+u:([meditation "kan du meditere"]) nu skal du se ^switchFocus(meditation-8806ca/behavior_1)
 
 u:(indstillinger) \rspd=90\ sig O K, hvis jeg skal åbne indstillingerne.
     u1:(OK) ^run(System/boot-config)
