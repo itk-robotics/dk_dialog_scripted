@@ -8,7 +8,7 @@ Det forudsættes at dansk tale er installeret og sat som standard på robotten.
 ## INSTALLATION
 
 1. Forbind til robotten via SSH eller SFTP og naviger til /var/persistent/home/nao/.local/share/PackageManager/apps/run_dialog_dev
-2. Udkommenter launch trigger condition
+2. Åben 'manifest.xml' Udkommenter launch trigger condition:
 ```
       <autonomous>
         <!--
