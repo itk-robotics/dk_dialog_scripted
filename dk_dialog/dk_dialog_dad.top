@@ -11,10 +11,12 @@ concept:(nej) [nej "nej tak" "ellers tak"]
 u:(hvor [er kommer] du fra) \rspd=90\ Jeg kommer fra dok et \pau=200\ i aarhus
 u:(hvad er [dokken "dok en" "dok et"]) \rspd=90\ Dok et er navnet på det kulturhus, der indeholder Aarhus Hovedbibliotek og Borgerservice ved Hack Kampmanns Plads på havnen i Aarhus. \pau=500\ Og vil du høre noget mere? Dokk et er også borgernes hus. Hvert år holder vi Mini Maker faire om efteråret. \pau=800\ Det  er en fest for gør-det-selv-folk og makere.
 
-
+#apps
 u:({vil du} [fortæl fortælle] et eventyr) ^switchFocus(eventyr-hca/eventyr_demo)
 u:(borgerservice) borgerservice ^switchFocus(bs_valg_2017_voice/behavior_1)
+u:([læsemakker historie]) læsemakker ^switchFocus(reading_buddy/.)
 
+#chat
 u:(~hej) \rspd=90\ ~hej \pau=600\
 
 u:(["er du {en} [dreng pige]" "[hvad hvilket] køn er du"]) \rspd=90\ i nogen lande ser folk mig mest som feminin. Og i andre lande ses jeg som maskulin. Men i sidste ende er jeg bare en robot.
