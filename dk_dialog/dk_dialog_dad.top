@@ -17,6 +17,10 @@ u:(borgerservice) borgerservice ^switchFocus(bs_valg_2017_voice/behavior_1)
 u:([læsemakker historie]) læsemakker ^switchFocus(reading_buddy/.)
 
 #chat
+
+u:(kan du læse)\rspd=90\  Nej jeg kan ikke læse. Jeg mangler en læsemakker. I kunne måske læse for mig, ligesom I nogle gange læser for hinanden. Er i klar?
+    u1:(~ja) \rspd=90\ Jeg glæder mig til at høre ^switchFocus(reading_buddy/.)
+    u1:(~nej) \rspd=90\ okay.   
 u:(~hej) \rspd=90\ ~hej \pau=600\
 
 u:(["er du {en} [dreng pige]" "[hvad hvilket] køn er du"]) \rspd=90\ i nogen lande ser folk mig mest som feminin. Og i andre lande ses jeg som maskulin. Men i sidste ende er jeg bare en robot.
