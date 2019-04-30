@@ -14,7 +14,7 @@ u:(hvad er [dokken "dok en" "dok et"]) \rspd=90\ Dok et er navnet på det kultur
 #apps
 u:({vil du} [fortæl fortælle] et eventyr) ^switchFocus(eventyr-hca/eventyr_demo)
 u:(borgerservice) borgerservice ^switchFocus(bs_valg_2017_voice/behavior_1)
-u:([læsemakker historie]) læsemakker ^switchFocus(reading_buddy/.)
+u:([læsemakker historie]) læsemakker ^switchFocus(readingbuddymini-dm64/behavior_1)
 
 #chat
 
