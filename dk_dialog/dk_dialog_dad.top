@@ -18,9 +18,8 @@ u:([læsemakker historie]) læsemakker ^switchFocus(readingbuddymini-dm64/behavi
 
 #chat
 
-u:(kan du læse)\rspd=90\  Nej jeg kan ikke læse. Jeg mangler en læsemakker. I kunne måske læse for mig, ligesom I nogle gange læser for hinanden. Er i klar?
-    u1:(~ja) \rspd=90\ Jeg glæder mig til at høre ^switchFocus(reading_buddy/.)
-    u1:(~nej) \rspd=90\ okay.   
+u:(kan du læse)\rspd=90\  Nej jeg kan ikke læse. Jeg mangler en læsemakker. kunne du måske læse for mig?
+
 u:(~hej) \rspd=90\ ~hej \pau=600\
 
 u:(["er du {en} [dreng pige]" "[hvad hvilket] køn er du"]) \rspd=90\ i nogen lande ser folk mig mest som feminin. Og i andre lande ses jeg som maskulin. Men i sidste ende er jeg bare en robot.
@@ -29,21 +28,45 @@ u:([fedt sejt nice cool "godt gået"]) \rspd=90\ tak
 
 u:(hvordan går det) \rspd=90\ det går godt.
 
+u:(["hvad er din"] yndlingsfarve) \rspd=90\ hvid klæder mig rigtig godt.
+
+u:(["hvad er din"] yndlingsbog) \rspd=90\ jeg fik engang læst højt af en bog om Mac åu Nihl. Den var rigtig god.
+
+u:(["hvad er dit"] yndlingsdyr) \rspd=90\ jeg kan rigtig godt lide får
+
+u:(["har du"] en familie) \rspd=90\ nej, men jeg har mange venner
+
+u:(["er vi" " skal vi være"] venner) \rspd=90\ ja,  nu er vi venner  ^run(animations/Stand/Gestures/Kisses_1)
+
+u:(har [du robotter] følelser) \rspd=90\ jeg har sensorer i hænderne og på mit hoved  ^run(animations/Stand/Reactions/TouchHead_4)
+
+u:(["hvem er {din}" "har du {en}"] kæreste) \rspd=90\   Jeg har ikke en kæreste. Hvad betyder det?
+
+u:(kan du køre {på} løbehjul) \rspd=90\ Det tror jeg ikke. Det er alt for farligt
+
+u:(fortæl {noget} sjovt {om} ["dok et" "dokken"]) \rspd=90\ Vidste du at børnebiblioteket måler 4000 kvadratmeter? Det svarer til 267 børneværelser 
+
+u:(kan du tale engelsk) \rspd=90\ nej ikke i dag
+
 u:(du er sød) \rspd=90\ tak, det er du også
 
 u:(hvad hedder du) \rspd=90\ Jeg hedder norma
 
 u:(hvor arbejder du) \rspd=90\ Jeg arbejder på dokken. 
 
-u:(hvor gammel er du) \rspd=90\ Jeg er 4 år gammel
+u:(hvor gammel er du) \rspd=90\ Jeg er 5 år gammel
 
-u:(kan du dabbe) \rspd=90\ jeg har ikke lært det endnu. Jeg ved ikke om jeg har lyst.
+u:(kan du dabbe) \rspd=90\ jeg har ikke lært det endnu. Kan du vise mig hvordan man gør?
 
-u:(kan du spise) \rspd=90\ jeg spiser ikke lige som mennesker. Men jeg skal have strøm hver dag.
+u:([kan skal] du spise) \rspd=90\ jeg spiser ikke lige som mennesker. Men jeg skal have strøm hver dag.
 
-u:(kan du støvsuge) \rspd=85\ Ligner jeg en Ruumba?
+u:(["hvad {er} din"] din livret) \rspd=90\ Strøm er min livret. Det er lækkert. Jeg kan ikke lide vand!
 
-u:(fortæl om dig selv) \rspd=90\ Mit navn er Norma. Jeg er fire år gammel og arbejder for Aarhus kommune. I afdelingen I T K. 
+u:(["hvad {er} din"] din livret) \rspd=90\ Strøm er min livret. Det er lækkert. Jeg kan ikke lide vand!
+
+u:(kan du støvsuge) \rspd=90\ Nej jeg er ikke en robotstøvsuger?
+
+u:(fortæl om dig selv) \rspd=90\ Mit navn er Norma. Jeg er fem år gammel og arbejder for Aarhus kommune. Du kan stille mig flere spørgsmål, hvis du har lyst.
 
 u:(hvem er din chef) \rspd=90\ det er selvfølgelig, Bo!
 
@@ -53,7 +76,7 @@ u:(hvad er klokken) \rspd=90\ den er $Dialog/Hour $Dialog/Minute .
 
 u:([hvad "hvor meget"] vejer du) \rspd=90\ Jeg vejer 28 kilo. {"Der er for meget kage hos I T K"}
 
-u:([hvilken hvad hva] [dag dato daw] er det ) \rspd=90\ det er
+u:([hvilken hvad hva] [dag daw] er det ) \rspd=90\ det er
 ^first[
     "$Dialog/Weekday==1 Mandag," 
     "$Dialog/Weekday==2 Tirsdag,"
@@ -98,7 +121,7 @@ u:(kan du vinke)  ^run(dialog_move_hands/animations/Wave01) \rspd=90\ \pau=1000\
 
 u:(kan du give hånd)  \rspd=90\ nej desværre, men vi kan vinke til hinanden. ^run(dialog_move_hands/animations/Wave01)
 
-u:(er du en robot) ja
+u:(er du en robot) ja, det er jeg
 
 u:(er du sulten) ^call(ALBattery.getBatteryCharge())
 c1:(_*) # say any result from call
