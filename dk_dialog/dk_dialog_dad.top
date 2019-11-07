@@ -9,7 +9,7 @@ concept:(nej) [nej "nej tak" "ellers tak"]
 
 # Replying to speech
 u:(hvor [er kommer] du fra) \rspd=90\ Jeg kommer fra dok et \pau=200\ i aarhus
-u:(hvad er [dokken "dok en" "dok et"]) \rspd=90\ Dok et er navnet på det kulturhus, der indeholder Aarhus Hovedbibliotek og Borgerservice ved Hack Kampmanns Plads på havnen i Aarhus. \pau=500\ Og vil du høre noget mere? Dokk et er også borgernes hus. Hvert år holder vi Mini Maker faire om efteråret. \pau=800\ Det  er en fest for gør-det-selv-folk og makere.
+u:(hvad er [dokken "dok en" "dok et"]) \rspd=90\ Dokken er der hvor jeg bor.  \pau=200\ Det er også et bibliotek
 
 #apps
 u:({vil du} [fortæl fortælle] et eventyr) ^switchFocus(eventyr-hca/eventyr_demo)
@@ -18,7 +18,7 @@ u:([læsemakker historie]) læsemakker ^switchFocus(readingbuddymini-dm64/behavi
 
 #chat
 
-u:(kan du læse)\rspd=90\  Nej jeg kan ikke læse. Jeg mangler en læsemakker. kunne du måske læse for mig?
+u:(kan du læse)\rspd=90\  Nej jeg kan ikke læse. Jeg mangler en læsemakker.  \pau=600\ kunne du måske læse for mig?
 
 u:(~hej) \rspd=90\ ~hej \pau=600\
 
